@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
+
 from config import COMMANDS
+from utils.embed import create_embed
 
 class Help(commands.Cog):
     def __init__(self, bot):
@@ -13,11 +15,16 @@ class Help(commands.Cog):
             for command, description in COMMANDS.items()
             if "utils" in command
         )
-        await ctx.reply(f"""
-            # Commands
-            ## Utils
-            {util_commands}
-        """)
+    
+        embed = await create_embed(
+            ctx,
+            "Commands",
+            f"""
+                **Utils**
+                {util_commands}
+            """
+        )
+        await ctx.reply(embed=embed)
 
 async def setup(bot):
     await bot.add_cog(Help(bot))
