@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 
 import os
 
+from config import COMMANDS
+
 load_dotenv()
 
 class Bot(commands.Bot):
@@ -15,6 +17,8 @@ class Bot(commands.Bot):
             command_prefix=os.getenv("prefix"),
             intents=intents
         )
+
+        self.remove_command("help")
 
     async def setup_hook(self):
         for root, dirs, files in os.walk("commands"):
@@ -28,9 +32,8 @@ class Bot(commands.Bot):
                         .replace("\\", ".")
                         .removesuffix(".py")
                     )
-                    print(extension)
-
                     await self.load_extension(extension)
+                    COMMANDS.update({extension: "No description"})
 
     async def on_ready(self):
         print(f"Conectado como {self.user}")
