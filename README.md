@@ -40,7 +40,7 @@ Este é um bot para Discord desenvolvido com `discord.py` que oferece diversos c
 2. Instale as dependências:
    ```bash
    pip install -r requirements.txt
-4. Crie um arquivo config.json na raiz do projeto com o seguinte conteúdo:
+4. Renomeie o arquivo config_example.json para config.json na raiz do projeto com o seguinte conteúdo:
    ```bash
    {
      "token": "SEU_TOKEN_AQUI",
@@ -48,4 +48,4 @@ Este é um bot para Discord desenvolvido com `discord.py` que oferece diversos c
    }
 5. Execute o bot:
    ```bash
-   python bot.py
+   python main.py

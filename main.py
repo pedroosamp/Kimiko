@@ -591,4 +591,4 @@ async def on_message(message):
                 await message.reply(embed=embed)
 
 
-client.run(config.json["prefix"])
+client.run(config["token"])
