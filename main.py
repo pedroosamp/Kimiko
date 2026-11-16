@@ -1,12 +1,10 @@
 import discord
+import asyncio
 from discord.ext import commands
-from dotenv import load_dotenv
 
+from config import TOKEN, PREFIX, COMMANDS
 import os
 
-from config import COMMANDS
-
-load_dotenv()
 
 class Bot(commands.Bot):
     def __init__(self):
@@ -14,7 +12,7 @@ class Bot(commands.Bot):
         intents.message_content = True
 
         super().__init__(
-            command_prefix=os.getenv("prefix"),
+            command_prefix=PREFIX,
             intents=intents
         )
 
@@ -36,7 +34,18 @@ class Bot(commands.Bot):
                     COMMANDS.update({extension: "No description"})
 
     async def on_ready(self):
-        print(f"Conectado como {self.user}")
+        print(f"Logged as {self.user}")
+
+        presences = [
+            discord.Game(f"Send {PREFIX} help for more info!"),
+            discord.Activity(type=discord.ActivityType.watching, name=f"{len(self.guilds)} servers")
+        ]
+        count = 0
+        while True:
+            await self.change_presence(status=discord.Status.idle, activity=presences[count])
+            await asyncio.sleep(4)
+            count = (count + 1) % len(presences)
+            
 
     async def on_message(self, message):
         if message.author.bot:
@@ -44,10 +53,10 @@ class Bot(commands.Bot):
 
         if message.content == self.user.mention:
             await message.channel.send(
-                f"Hi, send `{os.getenv('prefix')}help` for commands."
+                f"Hi, send `{PREFIX}help` for commands."
             )
 
         await self.process_commands(message)
 
 bot = Bot()
-bot.run(os.getenv("token"))
+bot.run(TOKEN)
