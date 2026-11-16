@@ -1,51 +1,55 @@
-# Discord.py Example - Tutorial (pt-BR)
+# Discord.py Bot
 
-Este é um bot para Discord desenvolvido com `discord.py` que oferece diversos comandos úteis, incluindo funcionalidades de administração, interação com usuários e status dinâmico.
+This is a Discord bot developed with `discord.py` that offers various useful commands, including administration, user interaction, and dynamic status features.
 
-## Funcionalidades
+## Features
 
-- **Comandos de Usuário:**
-  - `.ajuda/help`: Mostra uma lista de comandos disponíveis.
-  - `.ping`: Retorna a latência do bot.
-  - `.rolar/roll (numero)`: Rola um dado com o número de lados especificado.
-  - `.moeda/coin`: Realiza o sorteio de cara ou coroa.
-  - `.warninfo (@user)`: Exibe o motivo e a quantidade de advertências de um usuário.
+> ⚠️ Remember to change your bot's prefix.
 
-- **Comandos de Admin:**
-  - `.say (mensagem)`: Faz o bot enviar uma mensagem personalizada.
-  - `.ban (@user)`: Bane um usuário mencionado.
-  - `.unban (id)`: Desbana um usuário por ID.
-  - `.kick (@user)`: Expulsa um usuário mencionado.
-  - `.clear (quantidade)`: Apaga uma quantidade de mensagens no chat.
-  - `.mute (@user)`: Muta um usuário mencionado.
-  - `.unmute (@user)`: Desmuta um usuário mencionado.
-  - `.lock`: Trava o canal onde a mensagem foi enviada.
-  - `.unlock`: Destrava o canal onde a mensagem foi enviada.
-  - `.warn (@user)`: Aplica uma advertência a um usuário, que será banido após 3 advertências.
-  - `.removewarn (@user)`: Remove a advertência de um usuário.
-  - `.timeout (@user)`: Coloca um usuário em timeout (castigo).
+- **User Commands:**
+  - `ping`: Returns the bot's latency.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - Python 3.x
-- [discord.py](https://discordpy.readthedocs.io/en/stable/) para a criação do bot
-- [asyncio](https://docs.python.org/3/library/asyncio.html) para a execução assíncrona
-- [json](https://docs.python.org/3/library/json.html) para leitura e escrita de configurações
+- [discord.py](https://discordpy.readthedocs.io/en/stable/) for bot development
+- [asyncio](https://docs.python.org/3/library/asyncio.html) for asynchronous execution
+- [python-dotenv](https://pypi.org/project/python-dotenv/) for reading secrets
 
-## Como Executar
+## How to Run
 
-1. Clone este repositório em sua máquina:
+1. Clone the repository:
    ```bash
    git clone https://github.com/pedroosamp/discordpy-bot.git
-2. Instale as dependências:
+   ```
+
+2. Rename `.env.example` to `.env` and configure:
+   ```env
+   token=BOT_TOKEN
+   prefix=.
+   ```
+
+3. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   ```
+
+   Windows:
+   ```bash
+   ./venv/Scripts/Activate.ps1
+   ```
+
+   Linux:
+   ```bash
+   source ./venv/bin/activate
+   ```
+
+4. Install dependencies:
    ```bash
    pip install -r requirements.txt
-4. Renomeie o arquivo config_example.json para config.json na raiz do projeto com o seguinte conteúdo:
-   ```bash
-   {
-     "token": "SEU_TOKEN_AQUI",
-     "prefix": "."
-   }
-5. Execute o bot:
+   ```
+
+5. Run the bot:
    ```bash
    python main.py
+   ```
