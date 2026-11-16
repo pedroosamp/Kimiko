@@ -1,6 +1,6 @@
-# Discord.py Bot
+# Kimiko
 
-This is a Discord bot developed with `discord.py` that offers various useful commands, including administration, user interaction, and dynamic status features.
+Kimiko is a Discord bot developed with `discord.py` that offers various useful commands, including administration, user interaction, and dynamic status features.
 
 ## Features
 
@@ -20,7 +20,7 @@ This is a Discord bot developed with `discord.py` that offers various useful com
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/pedroosamp/discordpy-bot.git
+   git clone https://github.com/pedroosamp/Kimiko.git
    ```
 
 2. Rename `.env.example` to `.env` and configure:
@@ -53,3 +53,9 @@ This is a Discord bot developed with `discord.py` that offers various useful com
    ```bash
    python main.py
    ```
+## License
+
+Copyright (C) 2026 pedroosamp
+
+Licensed under the GNU Affero General Public License v3.0 (AGPL-3.0).
+See the [LICENSE](LICENSE) file for details.
