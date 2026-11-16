@@ -38,6 +38,16 @@ class Bot(commands.Bot):
     async def on_ready(self):
         print(f"Conectado como {self.user}")
 
+    async def on_message(self, message):
+        if message.author.bot:
+            return
+
+        if message.content == self.user.mention:
+            await message.channel.send(
+                f"Hi, send `{os.getenv('prefix')}help` for commands."
+            )
+
+        await self.process_commands(message)
 
 bot = Bot()
 bot.run(os.getenv("token"))
