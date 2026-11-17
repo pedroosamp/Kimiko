@@ -10,5 +10,5 @@ PREFIX = os.getenv("prefix")
 COMMANDS = {}
 
 OPENAI_API_KEY = os.getenv("openai_api_key")
-OPENAI_MODEL = "gpt-5-mini"
+OPENAI_MODEL = os.getenv("openai_model")
 INSTRUCTIONS = Path("prompts/system.txt").read_text(encoding="utf-8")

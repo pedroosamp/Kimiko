@@ -3,6 +3,7 @@ import asyncio
 from discord.ext import commands
 
 from config import TOKEN, PREFIX, COMMANDS
+from services.openai_engine import ask_kimiko
 import os
 
 
@@ -51,10 +52,15 @@ class Bot(commands.Bot):
         if message.author.bot:
             return
 
-        if message.content == self.user.mention:
-            await message.channel.send(
-                f"Hi, send `{PREFIX}help` for commands."
-            )
+        if self.user.mention in message.content:
+            message_ = message.content
+            if len(message_.split()) > 1:
+                response = await ask_kimiko(message_.split(" ", 1)[1])
+                await message.channel.send(response)
+            else:
+                await message.channel.send(
+                    f"Hi, send `{PREFIX}help` for commands."
+                )
 
         await self.process_commands(message)
 

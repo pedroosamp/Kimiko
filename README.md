@@ -1,6 +1,6 @@
 # Kimiko
 
-Kimiko is a Discord bot developed with `discord.py` that offers various useful commands, including administration, user interaction, and dynamic status features.
+Kimiko is a Discord bot developed with `discord.py` that offers various useful commands, user interaction, and dynamic status features.
 
 ## Features
 
@@ -8,6 +8,7 @@ Kimiko is a Discord bot developed with `discord.py` that offers various useful c
 
 - **User Commands:**
   - `ping`: Returns the bot's latency.
+  - `help`: Returns a help message.
 
 ## Technologies Used
 
@@ -15,6 +16,7 @@ Kimiko is a Discord bot developed with `discord.py` that offers various useful c
 - [discord.py](https://discordpy.readthedocs.io/en/stable/) for bot development
 - [asyncio](https://docs.python.org/3/library/asyncio.html) for asynchronous execution
 - [python-dotenv](https://pypi.org/project/python-dotenv/) for reading secrets
+- [openai](https://developers.openai.com/api/docs) for AI responses
 
 ## How to Run
 
