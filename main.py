@@ -3,9 +3,10 @@ import asyncio
 from discord.ext import commands
 
 from config import TOKEN, PREFIX, COMMANDS
-from services.openai_engine import ask_kimiko
+from services.openai_engine import KimikoOpenAI
 import os
 
+kimiko_openai = KimikoOpenAI()
 
 class Bot(commands.Bot):
     def __init__(self):
@@ -17,9 +18,12 @@ class Bot(commands.Bot):
             intents=intents
         )
 
+        self.ai_available = None
         self.remove_command("help")
 
     async def setup_hook(self):
+        self.ai_available = await kimiko_openai.verify_credentials()
+
         for root, dirs, files in os.walk("commands"):
             for file in files:
                 if file.endswith(".py") and not file.startswith("__"):
@@ -55,8 +59,9 @@ class Bot(commands.Bot):
 
         if self.user.mention in message.content:
             message_ = message.content
-            if len(message_.split()) > 1:
-                response = await ask_kimiko(message_.split(" ", 1)[1])
+
+            if len(message_.split()) > 1 and self.ai_available:
+                response = await kimiko_openai.ask_kimiko(message_.split(" ", 1)[1])
                 await message.channel.send(response)
             else:
                 await message.channel.send(
