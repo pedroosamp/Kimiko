@@ -61,7 +61,8 @@ class Bot(commands.Bot):
             message_ = message.content
 
             if len(message_.split()) > 1 and self.ai_available:
-                response = await kimiko_openai.ask_kimiko(message_.split(" ", 1)[1])
+                async with message.channel.typing():
+                    response = await kimiko_openai.ask_kimiko(message_.split(" ", 1)[1])
                 await message.channel.send(response)
             else:
                 await message.channel.send(
