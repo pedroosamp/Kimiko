@@ -10,6 +10,14 @@ Kimiko is a Discord bot developed with `discord.py` that offers various useful c
   - `ping`: Returns the bot's latency.
   - `help`: Returns a help message.
 
+- **Fun Commands:**
+  - `coin`: Toss a coin.
+
+## AI Features
+
+Kimiko uses AI to respond to messages when you mention her and include a text prompt.
+Example: `@your_bot Hello world`
+
 ## Technologies Used
 
 - Python 3.x
@@ -27,8 +35,11 @@ Kimiko is a Discord bot developed with `discord.py` that offers various useful c
 
 2. Rename `.env.example` to `.env` and configure:
    ```env
-   token=BOT_TOKEN
-   prefix=.
+   token=BOT_TOKEN (how to create an app: https://docs.discord.com/developers/quick-start/getting-started#step-1-creating-an-app)
+   prefix=BOT_PREFIX (used to chat commands: ".help")
+
+   openai_api_key=sk-...(empty if you don't want to use)
+   openai_model=gpt-6-luna
    ```
 
 3. Create and activate a virtual environment:
