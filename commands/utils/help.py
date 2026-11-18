@@ -4,7 +4,7 @@ from discord.ext import commands
 from config import COMMANDS
 from utils.embed import create_embed
 
-class Help(commands.Cog):
+class Help(commands.Cog, description="Returns a help message."):
     def __init__(self, bot):
         self.bot = bot
 
