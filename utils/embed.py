@@ -1,6 +1,6 @@
 import discord
 
-async def create_embed(ctx, title, description=None, image_url=None, url=None):
+async def create_embed(ctx, title=None, description=None, image_url=None, url=None):
     embed = discord.Embed(
         title=title,
         description=description,
