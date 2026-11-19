@@ -9,6 +9,7 @@ Kimiko is a Discord bot developed with `discord.py` that offers various useful c
 - **User Commands:**
   - `ping`: Returns the bot's latency.
   - `help`: Returns a help message.
+  - `avatar`: Return an user's avatar.
 
 - **Fun Commands:**
   - `coin`: Toss a coin.
