@@ -13,6 +13,7 @@ Kimiko is a Discord bot developed with `discord.py` that offers various useful c
 
 - **Fun Commands:**
   - `coin`: Toss a coin.
+  - `roll`: Roll a dice.
 
 ## AI Features
 
