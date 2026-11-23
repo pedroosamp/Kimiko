@@ -44,8 +44,6 @@ class Bot(commands.Bot):
                         "type": cog.type,
                         "path": extension,
                     })
-                
-        print(COMMANDS)
 
     async def on_ready(self):
         print(f"Logged as {self.user}")
