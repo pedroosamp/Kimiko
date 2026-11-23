@@ -37,7 +37,15 @@ class Bot(commands.Bot):
                     )
                     await self.load_extension(extension)
                     cog = self.get_cog(file.removesuffix(".py").capitalize())
-                    COMMANDS[extension] = cog.description if cog else "No description"
+
+                    COMMANDS.append({
+                        "name": cog.name,
+                        "description": cog.description,
+                        "type": cog.type,
+                        "path": extension,
+                    })
+                
+        print(COMMANDS)
 
     async def on_ready(self):
         print(f"Logged as {self.user}")

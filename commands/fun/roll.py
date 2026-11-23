@@ -6,6 +6,9 @@ import random
 from utils.helpers import remove_command_prefix
 
 class Roll(commands.Cog, description="Roll a dice"):
+    name="Roll"
+    type="fun"
+
     def __init__(self, bot):
         self.bot = bot
 

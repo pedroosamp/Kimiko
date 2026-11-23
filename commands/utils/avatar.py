@@ -4,6 +4,9 @@ from discord.ext import commands
 from utils.embed import create_embed
 
 class Avatar(commands.Cog, description="Returns an user's avatar picture."):
+    name="Avatar"
+    type="utils"
+    
     def __init__(self, bot):
         self.bot = bot
 

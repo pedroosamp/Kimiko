@@ -2,6 +2,9 @@ import discord
 from discord.ext import commands
 
 class Ping(commands.Cog, description="Returns the bot's latency"):
+    name="Ping"
+    type = "utils"
+
     def __init__(self, bot):
         self.bot = bot
 

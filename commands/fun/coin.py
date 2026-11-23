@@ -7,6 +7,9 @@ import asyncio
 from utils.embed import create_embed
 
 class Coin(commands.Cog, description="Toss a coin."):
+    name="Coin"
+    type="fun"
+
     def __init__(self, bot):
         self.bot = bot
 

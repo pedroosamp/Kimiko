@@ -7,7 +7,7 @@ load_dotenv()
 
 TOKEN = os.getenv("token")
 PREFIX = os.getenv("prefix")
-COMMANDS = {}
+COMMANDS = []
 
 OPENAI_API_KEY = os.getenv("openai_api_key")
 OPENAI_MODEL = os.getenv("openai_model")
