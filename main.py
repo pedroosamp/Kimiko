@@ -2,9 +2,11 @@ import discord
 import asyncio
 from discord.ext import commands
 
-from config import TOKEN, PREFIX, COMMANDS
-from services.openai_engine import KimikoOpenAI
 import os
+
+from config import TOKEN, PREFIX, COMMANDS
+from utils.embed_messages import command_not_found
+from services.openai_engine import KimikoOpenAI
 
 kimiko_openai = KimikoOpenAI()
 
@@ -76,6 +78,10 @@ class Bot(commands.Bot):
                 )
 
         await self.process_commands(message)
+
+    async def on_command_error(self, ctx, error):
+        if isinstance(error, commands.CommandNotFound):
+            return await command_not_found(ctx)
 
 bot = Bot()
 bot.run(TOKEN)

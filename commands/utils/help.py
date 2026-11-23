@@ -21,8 +21,7 @@ class Help(commands.Cog, description="Returns a help message."):
             if command:
                 embed = await create_embed(ctx=ctx, title=arg.strip().capitalize(), description=command)
                 return await ctx.reply(embed=embed)
-            embed = await command_not_found(ctx=ctx)
-            return await ctx.reply(embed=embed)
+            return await command_not_found(ctx)
 
         commands = await self.all_commands(ctx=ctx)
         await ctx.reply(commands)
