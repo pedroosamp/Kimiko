@@ -82,6 +82,8 @@ class Bot(commands.Bot):
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.CommandNotFound):
             return await command_not_found(ctx)
+        else:
+            raise error
 
 bot = Bot()
 bot.run(TOKEN)
