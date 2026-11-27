@@ -2,3 +2,4 @@ venv
 .env
 *.pyc
 prompts/system.txt
+sqlite.db

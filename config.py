@@ -5,6 +5,8 @@ from pathlib import Path
 
 load_dotenv()
 
+DATABASE_URL = os.getenv("database_url")
+
 TOKEN = os.getenv("token")
 PREFIX = os.getenv("prefix")
 COMMANDS = []

@@ -7,6 +7,11 @@ import os
 from config import TOKEN, PREFIX, COMMANDS
 from utils.embed_messages import command_not_found
 from services.openai_engine import KimikoOpenAI
+from database.connection import Base, engine
+from database.models import Conversations, Messages
+from database.db import save_message
+
+Base.metadata.create_all(bind=engine)
 
 kimiko_openai = KimikoOpenAI()
 
@@ -72,6 +77,8 @@ class Bot(commands.Bot):
                 async with message.channel.typing():
                     response = await kimiko_openai.ask_kimiko(message_.split(" ", 1)[1])
                 await message.channel.send(response)
+                save_message(1, "user", message_)
+                save_message(1, "assistant", response)
             else:
                 await message.channel.send(
                     f"Hi, send `{PREFIX}help` for commands."
